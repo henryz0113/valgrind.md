@@ -1,0 +1,8 @@
+#### Memory Leak can happen in OpenFrame which may cause SIG9 or RC=137
+#### You can use valgrind to check for memory leak and loss 
+
+#!/bin/sh
+export PATH=$TMAXDIR/appbin/valgrind:$PATH
+valgrind -v --tool=memcheck --show-reachable=yes --leak-check=full --show-leak-kinds=all  --log-file=/${PATH}/valgrind.log_$$ ${PGM} $@
+
+##OPTIONS 
